@@ -6,12 +6,7 @@ export function Footer() {
   <div className="max-w-7xl mx-auto">
     <div className="glass-card p-6 sm:p-8 rounded-3xl text-center">
       <p className="font-body text-xs text-nusantara-deep/50 flex items-center justify-center gap-1.5">
-        Copyright © 2026 — Kia Maheswari.
-        <a href="https://8xploit.github.io/cv"
-          target="_blank"
-          rel="noopener noreferrer"
-          > Powered by Kapten Nemo
-        </a>
+        Copyright © 2026 — Kia Maheswari. Powered by 8XPLOIT!
       </p>
     </div>
   </div>
