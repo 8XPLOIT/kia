@@ -192,7 +192,8 @@ ${pesanInput}
               <Heart className="w-6 h-6 text-lightblue-400" />
               <h2 className="font-display text-3xl sm:text-4xl font-bold gradient-text">HIGHLIGHT</h2>
               <Heart className="w-6 h-6 text-lightblue-400" />
-              <p className="font-body text-sm text-nusantara-deep/60 max-w-2xl mx-auto">
+              </div>
+            <p className="font-body text-sm text-nusantara-deep/60 max-w-2xl mx-auto">
               Pilih sesi yang paling selaras dengan kebutuhan jiwamu saat ini
             </p>
             </div>
