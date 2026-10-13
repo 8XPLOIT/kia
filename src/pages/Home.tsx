@@ -62,14 +62,14 @@ export function Home() {
     const ig = tanya.ig;
     const pesanInput = tanya.pesan;
 
-    const pesan = `Halo Kak Kia, saya ingin bertanya:
+    const pesan = `Halo Kak Kia, saya izin bertanya...
 
-*Nama:* ${nama}
-*Instagram:* ${ig}
-*Pesan:*
+- *Nama:* ${nama}
+- *Instagram:* ${ig}
+- *Pesan:*
 ${pesanInput}
 
-Terima kasih.`;
+> Terima kasih kak.`;
 
     ['tanyaNama', 'tanyaIG', 'tanyaPesan'].forEach((key) => localStorage.removeItem(key));
     window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(pesan)}`;
