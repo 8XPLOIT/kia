@@ -191,8 +191,11 @@ ${pesanInput}
             <div className="flex items-center justify-center gap-2 mb-3">
               <Heart className="w-6 h-6 text-lightblue-400" />
               <h2 className="font-display text-3xl sm:text-4xl font-bold gradient-text">HIGHLIGHT</h2>
-              <Heart className="w-6 h-6 text-lightblue-400" />
+              <Sparkles className="w-6 h-6 text-lightblue-400" />
             </div>
+            <p className="font-body text-sm text-nusantara-deep/60 max-w-2xl mx-auto">
+              Pilih sesi yang paling selaras dengan kebutuhan jiwamu saat ini
+            </p>
           </div>
           <div className="glass-card p-8 sm:p-12 rounded-3xl">
             <div className="space-y-5 font-body text-sm sm:text-base text-nusantara-deep/75 leading-relaxed text-justify">
