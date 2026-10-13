@@ -69,7 +69,7 @@ export function Home() {
 - *Pesan:*
 ${pesanInput}
 
-> Terima kasih kak.`;
+Terima kasih kak.`;
 
     ['tanyaNama', 'tanyaIG', 'tanyaPesan'].forEach((key) => localStorage.removeItem(key));
     window.location.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(pesan)}`;
