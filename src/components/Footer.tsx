@@ -10,7 +10,7 @@ export function Footer() {
         <a href="https://8xploit.github.io/cv"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-nusantara-deep/70 hover:text-nusantara-deep transition-colors cursor-pointer"> Powered by Kapten Nemo
+          > Powered by Kapten Nemo
         </a>
       </p>
     </div>
