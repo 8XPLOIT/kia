@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Sparkles, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -7,6 +7,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -18,12 +19,23 @@ export function Navbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  const scrollToSection = (id: string) => {
+    setMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
-    { to: '/', label: 'Beranda' },
-    { to: '/#sessions', label: 'Sesi' },
-    { to: '/#highlight', label: 'Highlight' },
-    { to: '/#testimoni', label: 'Testimoni' },
-    { to: '/#kontak', label: 'Kontak' },
+    { id: 'sessions', label: 'Sesi' },
+    { id: 'highlight', label: 'Highlight' },
+    { id: 'testimoni', label: 'Testimoni' },
+    { id: 'kontak', label: 'Kontak' },
   ];
 
   return (
@@ -46,19 +58,26 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
+            <Link
+              to="/"
+              className="font-body text-sm font-medium text-nusantara-deep/70 hover:text-nusantara-deep transition-colors relative group"
+            >
+              Beranda
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-lightblue-300 rounded-full group-hover:w-full transition-all duration-300" />
+            </Link>
             {navLinks.map((link) => (
-              <a
-                key={link.to}
-                href={link.to}
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
                 className="font-body text-sm font-medium text-nusantara-deep/70 hover:text-nusantara-deep transition-colors relative group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-lightblue-300 rounded-full group-hover:w-full transition-all duration-300" />
-              </a>
+              </button>
             ))}
-            <a href="/#sessions" className="glass-btn text-sm !py-2.5 !px-5">
+            <button onClick={() => scrollToSection('sessions')} className="glass-btn text-sm !py-2.5 !px-5">
               Ambil Sesi
-            </a>
+            </button>
             <ThemeToggle />
           </div>
 
@@ -76,14 +95,21 @@ export function Navbar() {
 
         {menuOpen && (
           <div className="md:hidden mt-2 glass-card p-5 rounded-[2rem] flex flex-col gap-4 animate-fade-in">
+            <Link
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="font-body text-sm font-medium text-nusantara-deep/80 hover:text-lightblue-400 transition-colors"
+            >
+              Beranda
+            </Link>
             {navLinks.map((link) => (
-              <a
-                key={link.to}
-                href={link.to}
-                className="font-body text-sm font-medium text-nusantara-deep/80 hover:text-lightblue-400 transition-colors"
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="text-left font-body text-sm font-medium text-nusantara-deep/80 hover:text-lightblue-400 transition-colors"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </div>
         )}

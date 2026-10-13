@@ -127,10 +127,13 @@ Terima kasih.`;
                 </p>
               </div>
 
-              <a href="#sessions" className="glass-btn inline-flex items-center gap-2 text-base group">
+              <button
+                onClick={() => document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' })}
+                className="glass-btn inline-flex items-center gap-2 text-base group"
+              >
                 <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 AMBIL SESI ANDA SEKARANG!
-              </a>
+              </button>
             </div>
           </div>
         </div>
